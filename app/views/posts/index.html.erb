@@ -1,0 +1,22 @@
+<h1>Posts</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Date</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.name %></td>
+        <td><%= post.description %></td>
+        <td><%= post.month_year.strftime("%B %Y") %></td>
+        <td><%= link_to 'Show' %></td>
+        <td><%= link_to 'Edit' %></td>
+        <td><%= link_to 'Delete' %></td>
+      </tr>
+    <% end %>
+  </tbody>
