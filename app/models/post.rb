@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   validates :name, presence: true
   validates :month_year, presence: true
-  validates :description, length: { maximum: 500 }
+  validates :description, length: { maximum: 500 }, presence: true
 
   # def self.recent_posts(limit = 10)
   #   order(created_at: :desc).limit(limit)

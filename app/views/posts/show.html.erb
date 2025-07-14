@@ -1,2 +1,8 @@
 <h1>Post Details</h1>
 <p><strong>Name:</strong> <%= @post.name %></p>
+<p><strong>Description:</strong> <%= @post.description %></p>
+<p><strong>Date:</strong> <%= @post.month_year.strftime("%B %Y") %></p>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Delete', post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %> |
+<%= link_to 'Back to Posts', posts_path %>
