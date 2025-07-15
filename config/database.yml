@@ -5,7 +5,6 @@
 #   gem "sqlite3"
 #
 default: &default
-  adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
@@ -26,16 +25,24 @@ test:
 production:
   primary:
     <<: *default
-    database: storage/production.sqlite3
+    adapter: postgresql # Explicitly set adapter to postgresql for production
+    url: <%= ENV['DATABASE_URL'] %>
+    encoding: unicode # Add encoding here for production if not in default
   cache:
     <<: *default
-    database: storage/production_cache.sqlite3
+    adapter: postgresql # Explicitly set adapter to postgresql for production
+    url: <%= ENV['DATABASE_URL'] %>
+    encoding: unicode # Add encoding here for production if not in default
     migrations_paths: db/cache_migrate
   queue:
     <<: *default
-    database: storage/production_queue.sqlite3
+    adapter: postgresql # Explicitly set adapter to postgresql for production
+    url: <%= ENV['DATABASE_URL'] %>
+    encoding: unicode # Add encoding here for production if not in default
     migrations_paths: db/queue_migrate
   cable:
     <<: *default
-    database: storage/production_cable.sqlite3
+    adapter: postgresql # Explicitly set adapter to postgresql for production
+    url: <%= ENV['DATABASE_URL'] %>
+    encoding: unicode # Add encoding here for production if not in default
     migrations_paths: db/cable_migrate
