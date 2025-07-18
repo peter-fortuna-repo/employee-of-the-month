@@ -1,7 +1,7 @@
-<h1>New Post</h1>
+<h1 class="text-center mt-4 mb-4">New Post</h1>
 
 <% if @post.errors.any? %>
-  <div id="error_explanation">
+  <div id="error_explanation" class="text-center">
     <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
     <ul>
       <% @post.errors.full_messages.each do |message| %>
@@ -11,4 +11,6 @@
   </div>
 <% end %>
 <%= render 'form' %>
-<%= link_to 'Back to Posts', posts_path %>
+<div class="text-center mt-4">
+  <%= link_to 'Back to Posts', posts_path %>
+</div>

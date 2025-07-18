@@ -1,16 +1,18 @@
 <%= form_with model: @post, local: true do |form| %>
-    <p>
-        <%= form.label :month_year %><br>
-        <%= form.date_field :month_year %>
-    <p>
-        <%= form.label :name %><br>
-        <%= form.text_field :name %>
-    </p>
-    <p>
-        <%= form.label :description %><br>
-        <%= form.text_area :description %>
-    <p>
-    <p>
-        <%= form.submit %>
-    </p>
+    <div class="mx-auto col-2">
+        <p>
+            <%= form.label :month_year %><br>
+            <%= form.date_field :month_year %>
+        <p>
+            <%= form.label :name %><br>
+            <%= form.text_field :name %>
+        </p>
+        <p>
+            <%= form.label :description %><br>
+            <%= form.text_area :description %>
+        <p>
+        <p>
+            <%= form.submit %>
+        </p>
+    </div>
 <% end %>
